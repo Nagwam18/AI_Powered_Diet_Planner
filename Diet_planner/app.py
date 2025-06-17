@@ -679,3 +679,5 @@ def download_report(n_clicks, meal_data, tracker_data, motivation_data, user_inp
         traceback.print_exc()
         return None, error_msg
 
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=7860)
