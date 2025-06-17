@@ -1,0 +1,4 @@
+2025-06-17 14:33:36,617 - INFO - [ConcurrentFuturesInstrumentor] Successfully instrumented concurrent.futures.ThreadPoolExecutor
+2025-06-17 14:33:36,619 - INFO - AgentOps: Successfully instrumented 'ConcurrentFuturesInstrumentor' for package 'python'.
+2025-06-17 14:33:36,625 - INFO - AgentOps: 'crewai' is the first-targeted agentic library. Will uninstrument providers if any are/become active.
+2025-06-17 14:33:36,640 - INFO - AgentOps: Successfully instrumented 'CrewAIInstrumentor' for package 'agentops.instrumentation.crewai'.

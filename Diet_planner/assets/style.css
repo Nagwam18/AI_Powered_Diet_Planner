@@ -1,0 +1,276 @@
+:root {
+    --primary-green: #4CAF50;
+    --secondary-blue: #007bff;
+    --dark-blue: #0A2463;
+    --light-green: #D4EDDA;
+    --dark-text: #333;
+    --white: #FFFFFF;
+    --light-gray: #f8f9fa;
+    --border-color: #dee2e6;
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --input-border: #ced4da;
+    --button-hover-bg: #409244; /* Slightly darker green for hover */
+
+    /* ألوان جديدة لأزرار التنقل */
+    --prev-button-bg: #6c757d; /* لون رمادي لزر السابق */
+    --prev-button-hover-bg: #5a6268;
+    --next-button-bg: #28a745; /* لون أخضر داكن لزر التالي */
+    --next-button-hover-bg: #218838;
+    --home-button-bg: #007bff; /* لون أزرق لزر الرئيسية */
+    --home-button-hover-bg: #0056b3;
+
+    /* **[تعديل جديد]**: تعريف لون الأخضر الزيتي */
+    --olive-green: #556B2F; /* مثال على لون أخضر زيتي */
+}
+
+/* --- RTL Adjustments --- */
+body {
+    direction: rtl; /* Set default text direction to Right-to-Left */
+    text-align: right; /* Align text to the right */
+    font-family: 'Arial', sans-serif;
+
+    /* **[تأكيد]**: الخلفية لـ body بأكمله */
+    background-image: url('/assets/background.jpg');
+    background-size: cover; /* تجعل الصورة تغطي الشاشة بالكامل */
+    background-position: center center; /* توسيط الصورة */
+    background-attachment: fixed; /* تثبيت الصورة عند التمرير */
+    background-repeat: no-repeat; /* عدم تكرار الصورة */
+    background-color: #e8eef2; /* لون احتياطي للخلفية إذا لم يتم تحميل الصورة */
+
+    color: var(--dark-text);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* تأكد أن الـ body يملأ ارتفاع الشاشة */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    overflow-y: auto;
+}
+
+/* Ensure common Bootstrap containers and columns also follow RTL */
+.container, .card, .row, .col {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Align headings and paragraphs to the right */
+h1, h2, h3, h4, h5, h6, p, label {
+    text-align: right;
+}
+
+/* Form elements for RTL */
+.form-group, .dash-input, .dash-dropdown .Select-control, .dash-textarea {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Adjust unordered and ordered lists for RTL */
+ul, ol {
+    padding-right: 20px; /* Add padding to the right for list markers */
+    padding-left: 0; /* Remove default left padding */
+    text-align: right;
+}
+
+ul li, ol li {
+    text-align: right;
+    direction: rtl;
+}
+
+/* Navigation Buttons specific adjustments for order in RTL */
+.navigation-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+    padding: 20px 30px;
+    box-sizing: border-box;
+}
+
+.prev-button-color {
+    background-color: var(--prev-button-bg);
+    color: var(--white);
+}
+
+.prev-button-color:hover {
+    background-color: var(--prev-button-hover-bg);
+}
+
+.next-button-color {
+    background-color: var(--next-button-bg);
+    color: var(--white);
+}
+
+.next-button-color:hover {
+    background-color: var(--next-button-hover-bg);
+}
+
+.home-button {
+    background-color: var(--home-button-bg);
+    color: var(--white);
+}
+
+.home-button:hover {
+    background-color: var(--home-button-hover-bg);
+}
+
+/* إذا أيقونات تحتاج لقلب أفقي */
+.some-icon-class {
+    transform: scaleX(-1);
+}
+
+/* --- Existing Styles --- */
+.container {
+    background-color: rgba(255, 255, 255, 0.9); /* الخلفية الشفافة للمربع الأبيض الرئيسي */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow);
+    margin-top: 50px;
+    margin-bottom: 50px;
+    max-width: 900px; /* للتحكم في عرض المربع الأبيض الكلي */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: right;
+    direction: rtl;
+    gap: 20px; /* مسافة بين العناصر داخل الكونتينر */
+    min-height: calc(100vh - 80px); /* ليأخذ ارتفاع مناسب داخل الشاشة */
+}
+
+.dash-button {
+    background-color: var(--primary-green);
+    color: var(--white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dash-button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.download-button {
+    background-color: var(--secondary-blue);
+}
+
+.download-button:hover {
+    background-color: #0056b3;
+}
+
+.motivation-message:empty,
+.error-message:empty {
+    display: none;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.motivation-message {
+    background-color: var(--light-green);
+    border-left: 5px solid var(--primary-green);
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.error-message {
+    color: #dc3545;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+.dash-input, .dash-dropdown .Select-control, .dash-textarea {
+    border: 1px solid var(--input-border);
+    border-radius: 5px;
+    padding: 8px 12px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group {
+    font-weight: bold;
+    color: var(--dark-blue);
+    margin-bottom: 5px;
+}
+
+/* **[تعديل لون العناوين]** */
+h1, h2, h3 {
+    color: var(--olive-green); /* استخدام اللون الأخضر الزيتي */
+    text-shadow: none; /* إزالة الظل لجعل الخط أوضح */
+    font-weight: bold; /* جعل الخط سميكًا */
+    margin-top: 0; /* إزالة المسافة العلوية الافتراضية */
+}
+
+/* **[تعديل حجم خط العنوان H1]** */
+h1 {
+    font-size: 2.8em; /* زيادة حجم الخط لـ H1 */
+}
+
+/* **[تعديل حجم خط العناوين H2]** */
+h2 {
+    font-size: 2.2em; /* زيادة حجم الخط لـ H2 */
+}
+
+/* **[تعديل حجم خط العناوين H3]** */
+h3 {
+    font-size: 1.8em; /* زيادة حجم الخط لـ H3 */
+}
+
+hr {
+    border-top: 2px solid var(--primary-green);
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+.card {
+    border: 1px solid var(--border-color);
+    box-shadow: var(--box-shadow);
+    border-radius: 8px;
+}
+
+.report-section-container {
+    background-color: var(--light-green);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: none;
+    margin-top: 30px;
+}
+
+.article-link:hover {
+    text-decoration: underline;
+}
+
+.loading-spinner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.loading-spinner::after {
+    content: "جاري التحميل...";
+    font-size: 1.2em;
+    color: var(--primary-green);
+}
+
+.results-section {
+    background-color: var(--light-green);
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
