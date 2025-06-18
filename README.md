@@ -30,7 +30,6 @@ This application helps you achieve a healthier lifestyle through AI-powered meal
 | **python-dotenv**             | Environment variables      |
 | **Plotly**                    | Interactive charts         |
 | **Pandas**                    | Data handling              |
-| **Gunicorn**                  | Production WSGI server     |
 
 ---
 
@@ -102,74 +101,6 @@ This application helps you achieve a healthier lifestyle through AI-powered meal
        print('Public URL:', tunnel.public_url)
        app.run_server(host='0.0.0.0', port=port)
    ```
-
----
-
-## ☁️ Deployment on Hugging Face Spaces
-
-### Required Structure
-
-```text
-Diet_planner/
-├── app.py               # Dash application
-├── requirements.txt     # Python dependencies
-├── huggingface.yaml     # Hugging Face config
-├── .env                 # Not committed (use HF secrets)
-├── agents/              # CrewAI agents
-│   ├── __init__.py
-│   ├── meal_planner_agent.py
-│   ├── tracker_agent.py
-│   └── motivation_agent.py
-├── assets/              # Static files (CSS, images)
-│   ├── style.css
-│   └── background.jpg
-└── .gitignore
-```
-
-### `huggingface.yaml`
-
-```yaml
-sdk: gradio
-python_version: 3.9
-app_file: app.py
-```
-
-### `requirements.txt`
-
-```txt
-dash
-dash-bootstrap-components
-Flask
-gunicorn
-python-dotenv
-crewai
-pydantic>=2.0.0
-agentops
-requests
-google-generativeai
-langchain-google-genai
-plotly
-pandas
-fpdf2
-```
-
-### Final lines in `app.py`
-
-```python
-if __name__ == "__main__":
-    app.run_server(host="0.0.0.0", port=7860)
-```
-
-### Deployment Steps
-
-1. Push the project to GitHub.
-2. Go to [https://huggingface.co/spaces](https://huggingface.co/spaces)
-3. Click **Create New Space** → choose `Gradio` as SDK.
-4. Link your GitHub repo.
-5. Add `GEMINI_API_KEY` as a secret in HF settings.
-6. Wait for build → your app is live!
-
----
 
 ## 📝 Notes
 
